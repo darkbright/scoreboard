@@ -21,6 +21,10 @@ class App extends React.Component {
       }
     })
   }
+
+  handleChangeScore = (index, delta) => {
+    console.log('index: ' + index, 'delta: ' + delta);
+  }
   
   render() {
     return (
@@ -28,8 +32,10 @@ class App extends React.Component {
         <Header title="My scoreboard" totalPlayers={this.state.players.length} />
   
         {/*Player List*/}
-        { this.state.players.map(item => <Player name={item.name} score={item.score}
+        { this.state.players.map((item, index) => <Player name={item.name} score={item.score}
           key={item.id.toString()} removePlayer={this.handleRemovePlayer}
+          changeScore={this.handleChangeScore}
+          index={index}
           id={item.id} />) 
         }
       </div>
