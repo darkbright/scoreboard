@@ -12,6 +12,10 @@ class Stopwatch extends Component {
     this.setState(prevState => ({isRunning: !prevState.isRunning}));
   }
 
+  handleReset = () => {
+    this.setState({timer: 0});
+  }
+
   tick = () => {
     if (this.state.isRunning) {
       this.setState(prevState => ({
@@ -38,7 +42,7 @@ class Stopwatch extends Component {
         <h2>Stopwatch</h2>
         <span className="stopwatch-time">{this.state.timer}</span>
         <button onClick={this.handleStopwatch}>{this.state.isRunning ? "Stop" : "Start"}</button>
-        <button>Reset</button>
+        <button onClick={this.handleReset}>Reset</button>
       </div>
     )
   }
