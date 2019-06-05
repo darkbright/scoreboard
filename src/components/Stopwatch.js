@@ -32,7 +32,7 @@ class Stopwatch extends Component {
   
   // DOM이 파괴되기 직전에 호출되는 라이프 사이클
   // 리소스 해제 등등
-  omponentWillUnmount() {
+  componentWillUnmount() {
     clearInterval(this.tickRef);
   }
 
