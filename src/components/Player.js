@@ -2,7 +2,16 @@ import React from 'react';
 
 import Counter from './Counter';
 
-class Player extends React.PureComponent {
+class Player extends React.Component {
+  componentWillReceiveProps(nextProps, nextContext) {
+    console.log('componentWillReceiveProps', nextProps);
+  }
+ 
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    console.log('shouldComponentUpdate', nextProps);
+    return nextProps.score !== this.props.score;
+  }
+
   render() {
     console.log(this.props.name, ' rendered');
     return (
