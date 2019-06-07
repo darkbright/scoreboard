@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 import Stats from './Stats';
 import Stopwatch from './Stopwatch';
@@ -23,4 +24,10 @@ Header.defaultProps = {
   title: 'Scoreboard'
 }
 
-export default Header;
+let mapStateToProps = (state) => {
+  return {
+    title: state.playerReducer.title
+  }
+}
+
+export default connect(mapStateToProps)(Header);
