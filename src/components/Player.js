@@ -29,4 +29,11 @@ class Player extends React.PureComponent {
     );  
   }
 }
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    removePlayer: (id) => dispatch(removePlayer(id))
+  }
+}
+
 export default connect(null, mapDispatchToProps)(Player);
