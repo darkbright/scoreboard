@@ -1,7 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Counter from './Counter';
+import {removePlayer} from "../redux/actions";
 
 class Player extends React.PureComponent {
   static propTypes = {
@@ -27,5 +29,4 @@ class Player extends React.PureComponent {
     );  
   }
 }
-
-export default Player;
+export default connect(null, mapDispatchToProps)(Player);
