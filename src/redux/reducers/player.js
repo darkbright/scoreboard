@@ -1,4 +1,4 @@
-import {ADD_PLAYER, UPDATE_TITLE} from "../actionTypes";
+import {ADD_PLAYER, CHANGE_SCORE, UPDATE_TITLE} from "../actionTypes";
 
 const playerInitialState = {
   title: 'Redux Scoreboard',
@@ -18,6 +18,16 @@ export const playerReducer = (state = playerInitialState, action) => {
       return {
         ...state,
         players: [...state.players, {name: action.name, score: 0, id: ++maxId}]
+      }
+    case CHANGE_SCORE:
+      state.players.forEach(item => {
+        if (item.id === action.id) {
+          item.score += action.delta;
+        }
+      })
+      return {
+        ...state,
+        players: [...state.players]
       }
     case UPDATE_TITLE:
       return {

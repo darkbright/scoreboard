@@ -15,15 +15,14 @@ class Player extends React.PureComponent {
 
   render() {
     console.log(this.props.name, ' rendered');
+    const {removePlayer, id, name, score, changeScore} = this.props;
     return (
       <div className="player">
         <span className="player-name">
-          <button className="remove-player" onClick={() => this.props.removePlayer(this.props.id)}>x</button>
+          <button className="remove-player" onClick={() => removePlayer(id)}>x</button>
         </span>
-        <span className="player-name">
-          {this.props.name}
-        </span>
-        <Counter score={this.props.score} index={this.props.id} changeScore={this.props.changeScore} />
+        <span className="player-name">{name}</span>
+        <Counter score={score} id={id} changeScore={changeScore} />
       </div>
     );  
   }

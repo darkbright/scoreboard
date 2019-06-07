@@ -16,18 +16,6 @@ class App extends React.Component {
     })
   }
 
-  handleChangeScore = (id, delta) => {
-    console.log(id, delta);
-    this.setState(prevState => {
-      prevState.players.forEach(item => {
-        if (item.id === id) {
-          item.score += delta;
-        }
-      })
-      return {players: [...prevState.players]}
-    })
-  }
-  
   render() {
     return (
       <div className="scoreboard">
